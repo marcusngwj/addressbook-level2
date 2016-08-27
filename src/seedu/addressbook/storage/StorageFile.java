@@ -34,12 +34,21 @@ public class StorageFile {
     }
 
     /**
-     * Signals that some error has occured while trying to convert and read/write data between the application
+     * Signals that some error has occurred while trying to convert and read/write data between the application
      * and the storage file.
      */
     public static class StorageOperationException extends Exception {
         public StorageOperationException(String message) {
             super(message);
+        }
+    }
+    
+    /**
+     * Signals that file cannot be found
+     */
+    public static class StorageFileNotFoundException extends FileNotFoundException {
+        public StorageFileNotFoundException() {
+            super(DEFAULT_STORAGE_FILEPATH + " does not exist");
         }
     }
 
@@ -139,6 +148,14 @@ public class StorageFile {
         } catch (IllegalValueException ive) {
             throw new StorageOperationException("File contains illegal data values; data type constraints not met");
         }
+    }
+    
+    /**
+     * Check if a file exist
+     */
+    public boolean isFileExist() {
+        File file = new File(DEFAULT_STORAGE_FILEPATH);
+        return file.exists();
     }
 
     public String getPath() {
