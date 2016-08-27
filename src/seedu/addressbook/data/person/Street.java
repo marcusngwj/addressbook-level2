@@ -8,7 +8,7 @@ import seedu.addressbook.data.exception.IllegalValueException;
  */
 public class Street {
     public static final String MESSAGE_STREET_CONSTRAINTS = "";
-    public static final String STREET_VALIDATION_REGEX = "";
+    public static final String STREET_VALIDATION_REGEX = ".+";
     
     public final String value;
     
