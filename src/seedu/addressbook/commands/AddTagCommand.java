@@ -39,11 +39,13 @@ public class AddTagCommand extends Command {
             if (!addressBook.containsPerson(target)) {
                 return new CommandResult(Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK);
             }
+            String name = target.getName().toString();
             UniqueTagList newTagList = target.getTags();
             for(String tagString : tagSet){
                 Tag tag = new Tag(tagString);
                 newTagList.add(tag);
                 addressBook.addTag(tag);
+                tagging.updateTagAddition(name, tagString);
             }
             Person person = (Person)target;
             person.setTags(newTagList);
