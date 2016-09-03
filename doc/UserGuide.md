@@ -48,6 +48,14 @@ Examples:
 * `add John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01`
 * `add Betsy Crowe e/betsycrowe@gmail.com pp/1234567 pa/Newgate Prison t/criminal t/friend`
 
+### Add tags to a person: `addTag`
+Add tags to a person in the address book<br>
+Format: `addTag NAME [t/TAG]...
+
+Examples:
+* `addTag John Doe t/friend`
+* `addTag Betsy Crowe t/criminal t/friend`
+
 ### Listing all persons : `list`
 Shows a list of all persons in the address book.<br>
 Format: `list`
