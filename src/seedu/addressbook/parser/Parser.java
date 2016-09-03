@@ -62,13 +62,16 @@ public class Parser {
 
             case AddCommand.COMMAND_WORD:
                 return prepareAdd(arguments);
+            
+            case AddTagCommand.COMMAND_WORD:
+                return prepareAddTag(arguments);
 
             case DeleteCommand.COMMAND_WORD:
                 return prepareDelete(arguments);
 
             case ClearCommand.COMMAND_WORD:
                 return new ClearCommand();
-
+                
             case FindCommand.COMMAND_WORD:
                 return prepareFind(arguments);
 
@@ -160,7 +163,33 @@ public class Parser {
             return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
     }
-
+    
+    /**
+     * Parses arguments in the context of the add tag command.
+     * @param args
+     * @return the prepared command
+     */
+    private Command prepareAddTag(String args){
+        try {
+            StringTokenizer st = new StringTokenizer(args, "t/");
+            String idx = st.nextToken();
+            final int targetIndex = parseArgsAsDisplayedIndex(idx);
+            
+            Set<String> tagSet = new HashSet<String>();
+            while(st.hasMoreTokens()){
+                tagSet.add(st.nextToken());
+            }
+            
+            return new AddTagCommand(targetIndex, tagSet);
+            
+        } catch (ParseException pe) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    AddTagCommand.MESSAGE_USAGE));
+        } catch (NumberFormatException nfe) {
+            return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        }
+    }
+    
     /**
      * Parses arguments in the context of the view command.
      *
