@@ -171,7 +171,7 @@ public class Parser {
      */
     private Command prepareAddTag(String args){
         try {
-            StringTokenizer st = new StringTokenizer(args, "t/");
+            StringTokenizer st = new StringTokenizer(args, "t//");
             String idx = st.nextToken();
             final int targetIndex = parseArgsAsDisplayedIndex(idx);
             
