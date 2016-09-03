@@ -4,6 +4,7 @@ import static seedu.addressbook.common.Messages.*;
 
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.person.ReadOnlyPerson;
+import seedu.addressbook.data.tag.Tagging;
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -104,6 +105,9 @@ public class TextUi {
         showToUser(MESSAGE_GOODBYE, DIVIDER, DIVIDER);
     }
 
+    public void showTagChangesMade(Tagging tagging){
+        showToUser(tagging.toString());
+    }
 
     public void showInitFailedMessage() {
         showToUser(MESSAGE_INIT_FAILED, DIVIDER, DIVIDER);
