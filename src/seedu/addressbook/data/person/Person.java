@@ -16,6 +16,7 @@ public class Person implements ReadOnlyPerson {
     private Address address;
 
     private final UniqueTagList tags;
+
     /**
      * Assumption: Every field must be present and not null.
      */
@@ -81,7 +82,7 @@ public class Person implements ReadOnlyPerson {
 
     @Override
     public String toString() {
-        return getAsTextShowAll();
+        return getPrintableString(this.getName(), this.getPhone(), this.getEmail(), this.getAddress());
     }
 
 }
