@@ -67,8 +67,12 @@ public class Name {
      */
      public boolean isSimilar(Name other) {
          List<String> listOfWordsInName = other.getWordsInName();
+         
          for(String word : listOfWordsInName){
-             if(fullName.contains(word)){
+             word = word.toUpperCase();
+             String existingName = fullName.toUpperCase();
+             
+             if(existingName.contains(word)){
                  return true;
              }
          }
