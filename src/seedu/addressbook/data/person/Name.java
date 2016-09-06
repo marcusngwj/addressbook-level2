@@ -66,6 +66,10 @@ public class Name {
      * Two names are considered similar if ...
      */
      public boolean isSimilar(Name other) {
+         if(other==null){
+             return false;
+         }
+         
          List<String> listOfWordsInName = other.getWordsInName();
          
          for(String word : listOfWordsInName){
