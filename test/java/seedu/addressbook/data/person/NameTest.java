@@ -48,5 +48,12 @@ public class NameTest {
         Name namePart1 = new Name("Xerxes Yancy");
         assertFalse(existingName.isSimilar(namePart1));
     }
+    
+    @Test
+    public void isSimilar_nullName() throws IllegalValueException{
+        Name existingName = new Name("Gerald Hubert Irvin");
+        Name namePart1 = null;
+        assertFalse(existingName.isSimilar(namePart1));
+    }
 
 }
