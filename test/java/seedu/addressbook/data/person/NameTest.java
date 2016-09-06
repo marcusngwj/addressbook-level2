@@ -41,5 +41,12 @@ public class NameTest {
         Name namePart1 = new Name("Gerald Hubert Irvin John Kenneth");
         assertTrue(existingName.isSimilar(namePart1));
     }
+    
+    @Test
+    public void isSimilar_totallyDifferentName() throws IllegalValueException{
+        Name existingName = new Name("Gerald Hubert Irvin");
+        Name namePart1 = new Name("Xerxes Yancy");
+        assertFalse(existingName.isSimilar(namePart1));
+    }
 
 }
