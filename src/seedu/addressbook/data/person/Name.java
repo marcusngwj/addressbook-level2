@@ -60,5 +60,19 @@ public class Name {
     public int hashCode() {
         return fullName.hashCode();
     }
+    
+    /**
+     * Returns true of the other name is very similar to this name.
+     * Two names are considered similar if ...
+     */
+     public boolean isSimilar(Name other) {
+         List<String> listOfWordsInName = other.getWordsInName();
+         for(String word : listOfWordsInName){
+             if(fullName.contains(word)){
+                 return true;
+             }
+         }
+         return false;
+     }
 
 }
