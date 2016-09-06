@@ -34,5 +34,12 @@ public class NameTest {
         Name namePart3 = new Name("Irvin");
         assertTrue(existingName.isSimilar(namePart3));
     }
+    
+    @Test
+    public void isSimilar_containsMoreThanName() throws IllegalValueException{
+        Name existingName = new Name("Gerald Hubert Irvin");
+        Name namePart1 = new Name("Gerald Hubert Irvin John Kenneth");
+        assertTrue(existingName.isSimilar(namePart1));
+    }
 
 }
